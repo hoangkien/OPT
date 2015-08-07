@@ -1,0 +1,3 @@
+development:
+  API_KEY: "45287362" #  ENV['API_KEY'] set apiKey from tokbox acc
+  SECRET: "f1a6c94c172f5399991f9b16cd9c35307c222db8" # ENV['SECRET'] set secret from tokbox acc

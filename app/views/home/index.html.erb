@@ -1,0 +1,8 @@
+<div id="videos">
+    <div id="subscriber"></div>
+    <div id="publisher"></div>
+</div>
+<% %w(sampleconfig.js opentok_app.js).each do |file| %>
+  <%= javascript_include_tag file %>
+<% end -%>
+
