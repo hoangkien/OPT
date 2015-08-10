@@ -1,4 +1,17 @@
   Rails.application.routes.draw do
+  devise_for :users
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+  root to:'home#index'
+
+  get 'rooms/index'
+
+  get 'rooms/new'
+
+  get 'rooms/create'
+
+  get 'users/index'
+
   post 'archives/start/:sessionId' => "archives#start"
 
   post 'archives/stop/:archiveID' => 'archives#stop'

@@ -1,0 +1,5 @@
+<ul class="nav nav-tabs">
+  <li role="presentation" class="<%= controller_name == 'home' ? 'active' : '' %>"><%= link_to"Home",home_index_path %></li>
+  <li role="presentation" class="<%= controller_name == 'users' ? 'active' : '' %>"><%= link_to"User", users_index_path %></li>
+  <li role="presentation" class="<%= controller_name == 'rooms' ? 'active' : '' %>"><%= link_to"Room", rooms_index_path %></li>
+</ul>

@@ -23,6 +23,12 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'opentok'
+gem 'activeadmin', github: 'activeadmin'
+gem 'devise'
+gem "ransack", github: "activerecord-hackery/ransack"
+gem "formtastic", github: "justinfrench/formtastic"
+gem 'responders',          github: 'plataformatec/responders'
+gem 'inherited_resources', github: 'josevalim/inherited_resources'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
