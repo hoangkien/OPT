@@ -1,4 +1,9 @@
-Rails.application.routes.draw do
+  Rails.application.routes.draw do
+  post 'archives/start/:sessionId' => "archives#start"
+
+  post 'archives/stop/:archiveID' => 'archives#stop'
+  get 'archives/view/:archiveID' => 'archives#view'
+
   get 'home/index'
   get 'home/get_session_token'
 

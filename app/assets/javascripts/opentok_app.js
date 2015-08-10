@@ -1,5 +1,10 @@
+//Declare variable
+var archiveID;
+
 // get the APIKEY and TOKEN
 $(document).ready(function() {
+    $('#stop').hide();
+    archiveID = null;
     getApiAndToken();
 });
 
@@ -30,7 +35,6 @@ function initializeSession() {
             height: '100%'
         });
     });
-
     // Handler for sessionDisconnected event
     session.on('sessionDisconnected', function(event) {
         console.log('You were disconnected from the session.', event.reason);
@@ -43,7 +47,9 @@ function initializeSession() {
             var publisher = OT.initPublisher('publisher', {
                 insertMode: 'append',
                 width: '100%',
-                height: '100%'
+                height: '100%',
+                name: "Kien",
+                style: {nameDisplayMode: 'on'}
             });
 
             session.publish(publisher);
@@ -54,4 +60,32 @@ function initializeSession() {
 
     });
 
+    // Handler for ArchiveStarted Event
+    session.on('archiveStarted', function(event){
+        archiveID = event.id;
+    })
+
+
+}
+//Function start record
+function startArchive() {
+    // Make ajax to request url start recording
+    $.post(SAMPLE_SERVER_BASE_URL + "/archives/start/" + sessionId);
+    $("#start").hide();
+    $("#stop").show();
+
+}
+//Function stop record
+function stopArchive() {
+    console.log(archiveID);
+    $.post(SAMPLE_SERVER_BASE_URL + "/archives/stop/" + archiveID);
+    $("#start").show();
+    $("#stop").hide();
+    $("#view").prop('disabled',false);
+}
+
+//View record
+function viewArchive() {
+    window.open(SAMPLE_SERVER_BASE_URL + "/archives/view/" + archiveID);
+    $("#view").prop('disabled',true);
 }

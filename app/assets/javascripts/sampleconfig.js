@@ -1,1 +1,1 @@
-var SAMPLE_SERVER_BASE_URL = 'http://localhost:3000';
+var SAMPLE_SERVER_BASE_URL = 'http://192.168.1.35:3000';
