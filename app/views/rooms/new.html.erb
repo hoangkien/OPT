@@ -1,2 +1,7 @@
-<h1>Room#new</h1>
-<p>Find me in app/views/room/new.html.erb</p>
+<%= form_for @room , url: rooms_create_path ,method: :post do |f| %>
+  <div class="form-group">
+    <%= f.label :name, "Room Name" %>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+  <button type="submit" class="btn btn-default">Submit</button>
+<% end -%>

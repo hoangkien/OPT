@@ -1,5 +1,27 @@
-<ul class="nav nav-tabs">
-  <li role="presentation" class="<%= controller_name == 'home' ? 'active' : '' %>"><%= link_to"Home",home_index_path %></li>
-  <li role="presentation" class="<%= controller_name == 'users' ? 'active' : '' %>"><%= link_to"User", users_index_path %></li>
-  <li role="presentation" class="<%= controller_name == 'rooms' ? 'active' : '' %>"><%= link_to"Room", rooms_index_path %></li>
-</ul>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Opentok</a>
+    </div>
+    <div>
+      <ul class="nav navbar-nav">
+        <li role="presentation" class="<%= controller_name == 'home' ? 'active' : '' %>"><%= link_to"Home",home_index_path %></li>
+        <li role="presentation" class="<%= controller_name == 'users' ? 'active' : '' %>"><%= link_to"User", users_index_path %></li>
+        <li role="presentation" class="<%= controller_name == 'rooms' ? 'active' : '' %>"><%= link_to"Room", rooms_index_path %></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <% if user_signed_in? %>
+          <li><a href="#"><span class="glyphicon glyphicon-user"></span> <%= current_user.email %></a></li>
+          <li>
+            <%= link_to destroy_user_session_path, :method => :delete  do  %>
+                Logout <span class="glyphicon glyphicon-log-in"></span>
+            <% end -%>
+          </li>
+        <% else %>
+          <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+          <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <% end -%>
+      </ul>
+    </div>
+  </div>
+</nav>

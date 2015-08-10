@@ -18,7 +18,7 @@ class ArchivesController < ApplicationController
 
   def view
     archive = OP.opentok.archives.find(params[:archiveID])
-    render :json => {:message => :ok}
+    render :json => {:message => :opentok}
   end
 
 end

@@ -8,7 +8,9 @@
 
   get 'rooms/new'
 
-  get 'rooms/create'
+  post 'rooms/create'
+
+  get 'rooms/join_room/:sessionId' => 'rooms#join_room' ,as: :join
 
   get 'users/index'
 
@@ -18,7 +20,7 @@
   get 'archives/view/:archiveID' => 'archives#view'
 
   get 'home/index'
-  get 'home/get_session_token'
+  get 'home/get_session_token/:sessionId' => 'home#get_session_token'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

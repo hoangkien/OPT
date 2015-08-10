@@ -1,0 +1,6 @@
+<tr>
+  <td><%= room.name %></td>
+  <td><%= room.sessionId %></td>
+  <td><%= room.created_at.strftime('%y-%m-%d') %></td>
+  <td><%= link_to"Join",join_path(room.sessionId) %></td>
+</tr>
